@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-const API_KEY = "b6792b75";
+const API_KEY = 'b6792b75';
 
 export class SearchForm extends Component {
   state = {
-    inputMovie: ""
+    inputMovie: '',
   };
 
   _handleChange = e => {
     this.setState({
-      inputMovie: e.target.value
+      inputMovie: e.target.value,
     });
   };
 
@@ -19,7 +19,7 @@ export class SearchForm extends Component {
     fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${inputMovie}`)
       .then(res => res.json())
       .then(results => {
-        const { Search, totalResults } = results;
+        const { Search = [], totalResults = '0' } = results;
         console.log({ Search, totalResults });
         this.props.onChange(Search);
       });
