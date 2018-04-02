@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { Movie } from "./Movie";
+import { Movie } from './Movie';
 
 export class MoviesList extends Component {
   static propTypes = {
-    movies: PropTypes.array
+    movies: PropTypes.array,
   };
 
   render() {
@@ -18,6 +18,7 @@ export class MoviesList extends Component {
               title={movie.Title}
               year={movie.Year}
               poster={movie.Poster}
+              id={movie.imdbID}
             />
           </div>
         ))}
